@@ -14,18 +14,20 @@ function Header({ inputData, setInputData }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setInputData([
-      ...inputData,
-      {
-        ...todovalue,
-        id: uuidv4(),
-        check: false,
-      },
-    ]);
-    setTodoValue({
-      title: "",
-      todo: "",
-    });
+    if (todovalue.title && todovalue.todo) {
+      setInputData([
+        ...inputData,
+        {
+          ...todovalue,
+          id: uuidv4(),
+          check: false,
+        },
+      ]);
+      setTodoValue({
+        title: "",
+        todo: "",
+      });
+    }
   }
 
   return (
